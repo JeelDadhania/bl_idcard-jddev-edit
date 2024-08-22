@@ -3,17 +3,19 @@
     import Pattern from './svgs/Pattern.svelte';
     import PfpOverlay from './svgs/PfpOverlay.svelte';
     import Stamp from './svgs/Stamp.svelte';
+    import StampGov from './svgs/StampGov.svelte';
+    import StampDOJ from './svgs/StampDOJ.svelte';
     import Backdrop from './svgs/Backdrop.svelte';
 
     let { id, firstName, lastName, dob, sex, imageURL } = $ID_INFO;
 
-    let { title, label, stamp, profileStamp, signature } = $ID_TYPE;
+    let { title, label, stamp, stampgov, stampdoj, profileStamp, profileStampGov, signature, } = $ID_TYPE;
 </script>
 
 <div
     class="aspect-ratio h-[20vh] bg absolute top-1/4 right-1/4 rounded-[2vh] overflow-hidden grid place-items-center py-[0vh]"
 >
-<Backdrop />
+    <Backdrop />
     <Pattern />
 
     <div class="w-full h-full flex flex-col z-10">
@@ -40,7 +42,6 @@
         <div
             class="grid place-items-center w-[10vh] h-[10vh] left-[0.5vw] rounded-full overflow-hidden absolute top-1/2 -translate-y-1/2"
         >
-
             <div
                 style="background-image: url({imageURL});"
                 class="w-full h-full bg-center bg-contain bg-no-repeat grid place-items-center z-10"
@@ -83,7 +84,6 @@
             </div>
 
             <div class="flex flex-col items-start justify-center gap-[1vh]">
-
                 <span class="flex flex-col gap-0 items-start justify-center">
                     <h1 class="text-[1.2vh] text-txt-primary opacity-80">
                         EXP
@@ -94,7 +94,9 @@
                 </span>
 
                 <span class="flex flex-col gap-0 items-start justify-center">
-                    <h1 class="text-[1.2vh] text-txt-primary opacity-80">DOB</h1>
+                    <h1 class="text-[1.2vh] text-txt-primary opacity-80">
+                        DOB
+                    </h1>
                     <h1 class="text-[1.5vh] text-txt-primary leading-[1vh]">
                         {dob}
                     </h1>
@@ -108,8 +110,6 @@
                         {sex.split('')[0]}
                     </h1>
                 </span>
-
-
             </div>
         </div>
 
@@ -136,6 +136,40 @@
                 class="absolute w-[12.5vh] h-[12.5vh] right-[5vh] bottom-[2vh]"
             >
                 <Stamp />
+            </div>
+        {/if}
+
+        {#if profileStampGov}
+            <div
+                class="absolute grid place-items-center w-[4vh] h-[4vh] right-[0.75vh] bottom-[0.75vh] rounded-full overflow-hidden"
+            >
+                <img
+                    src={imageURL}
+                    class="w-full h-full object-cover z-10 absolute opacity-60 hue-rotate-[210deg]"
+                    alt={firstName + lastName}
+                />
+
+                <img
+                    src="./profilegov.png"
+                    class="w-full h-full object-cover z-0 absolute"
+                    alt={firstName + lastName}
+                />
+            </div>
+        {/if}
+
+        {#if stampgov}
+            <div
+                class="absolute w-[12.5vh] h-[12.5vh] right-[5vh] bottom-[2vh]"
+            >
+                <StampGov />
+            </div>
+        {/if}
+
+        {#if stampdoj}
+            <div
+                class="absolute w-[12.5vh] h-[12.5vh] right-[5vh] bottom-[2vh]"
+            >
+                <StampDOJ />
             </div>
         {/if}
 

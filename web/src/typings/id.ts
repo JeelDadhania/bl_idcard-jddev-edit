@@ -15,7 +15,10 @@ export type TIDType = {
     titleColour: string;
 
     stamp: boolean;
+    stampgov: boolean,
+    stampdoj: boolean,
     profileStamp: boolean;
+    profileStampGov: boolean,
 
     signature: boolean;
 
