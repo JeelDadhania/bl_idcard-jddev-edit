@@ -1,3 +1,6 @@
+# **JD Dev Edit**: In this resource, I have added the government stamp, DOJ stamp, and government profile stamp. I also changed the signature font and modified the ID card preview location on the screen. All other aspects remain unchanged and were not created by me; they were originally developed by [Byte Labs Studio](https://github.com/Byte-Labs-Studio).
+
+
 # Byte Labs - ID Card
 A customisable system with an immaculate ID card design for your FiveM server.
 
